@@ -20,3 +20,4 @@ npx skills add fahrimz/skills --skill commit-conventions
 | Skill | Description |
 |---|---|
 | [`commit-conventions`](skills/commit-conventions/SKILL.md) | Angular-style oneliner + bullet-point commit/PR messages, no AI-attribution trailers |
+| [`plan-parallel-implement-review`](skills/plan-parallel-implement-review/SKILL.md) | Plan → parallel implement → review for large multi-file features: a high-capability planner produces a wave-structured plan with subagent briefs, lower-tier implementors execute waves in parallel, a review pass integrates everything |
