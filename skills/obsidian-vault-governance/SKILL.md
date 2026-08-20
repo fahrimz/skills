@@ -1,6 +1,6 @@
 ---
 name: obsidian-vault-governance
-description: Govern reads and writes to an Obsidian personal wiki: load its local rules, preserve source immutability, maintain links/hubs/index/log, lint changes, and safely commit and push. Use whenever an agent touches an Obsidian vault or is asked to file, connect, reorganize, journal, sync, or audit vault content.
+description: "Govern reads and writes to an Obsidian personal wiki: load its local rules, preserve source immutability, maintain links/hubs/index/log, lint changes, and safely commit and push. Use whenever an agent touches an Obsidian vault or is asked to file, connect, reorganize, journal, sync, or audit vault content."
 ---
 
 # Obsidian Vault Governance
