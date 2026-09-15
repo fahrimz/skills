@@ -84,6 +84,19 @@ def main() -> int:
         if not valid or any(key not in keys for key in REQUIRED):
             missing_fm.append(path.relative_to(root))
 
+    # Characters that corrupt a [[wikilink]] target when they appear in a filename:
+    # '#' is parsed as the heading-anchor separator ([[Page#Heading]]), '|' as the alias
+    # separator ([[Page|alias]]), and '[' / ']' terminate the link early. A page named with
+    # any of these can never be linked to safely — the link silently resolves to the wrong
+    # (usually nonexistent) target instead of erroring, e.g. `KYC Batch Resolver (#177)...`
+    # broke both the hub and log.md links that pointed at it (2026-09-15).
+    UNSAFE_NAME_CHARS = set("#|[]")
+    unsafe_names = [
+        p.relative_to(root)
+        for p in files
+        if UNSAFE_NAME_CHARS & set(p.stem)
+    ]
+
     orphans = [p.relative_to(root) for p in files if not inbound[p] and p.name not in {"index.md", "log.md", "CLAUDE.md"}]
     project_hub_gaps: list[Path] = []
     for path in files:
@@ -108,7 +121,10 @@ def main() -> int:
     print(f"Pages missing required frontmatter: {len(missing_fm)}")
     for path in missing_fm:
         print(f"  FRONTMATTER {path}")
-    return 1 if args.strict and (broken or missing_fm) else 0
+    print(f"Unsafe filenames (contain {sorted(UNSAFE_NAME_CHARS)}): {len(unsafe_names)}")
+    for path in unsafe_names:
+        print(f"  UNSAFE-NAME {path}")
+    return 1 if args.strict and (broken or missing_fm or unsafe_names) else 0
 
 
 if __name__ == "__main__":

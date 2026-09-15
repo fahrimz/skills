@@ -19,7 +19,7 @@ Use this skill whenever an Obsidian vault is in scope. Treat the vault's local `
 2. Read `CLAUDE.md` completely. Inspect `git status` and hash the files in the requested scope before editing.
 3. Never edit `sources/`. Link to raw material from wiki pages instead.
 4. Preserve the schema: validate frontmatter on touched wiki pages and repair mechanical drift, but do not mass-normalize or invent uncertain metadata.
-5. Maintain graph structure: exact filename links first; bare links only for vault-wide unique names; qualify duplicates with folder paths and aliases. Never guess ambiguous targets.
+5. Maintain graph structure: exact filename links first; bare links only for vault-wide unique names; qualify duplicates with folder paths and aliases. Never guess ambiguous targets. **Never put `#`, `|`, `[`, or `]` in a new filename/title** — Obsidian parses these inside `[[target]]` (`#` = heading anchor, `|` = alias separator, `[`/`]` = link terminators), so a page named with one can never be wikilinked to correctly. Write out issue/PR references as words instead (`Issue 177`, not `#177`). The lint helper below flags any existing offenders as `UNSAFE-NAME`.
 6. New pages require a durable, clearly requested entity/document. Add frontmatter, hub and `index.md` registration, cross-links, and one `log.md` entry.
 7. Append exactly one concise `log.md` line per write operation. Read-only work does not log.
 8. Run the bundled mechanical lint helper, then review semantic findings (contradictions, stale claims, identity merges, deletion, or uncertain relationships) without silently changing them.
@@ -42,7 +42,7 @@ Run:
 python3 <skill-dir>/scripts/lint_vault.py --root <vault-root>
 ```
 
-It reports broken links, orphan pages, missing project-hub references, and missing required frontmatter. Default mode reports findings without failing, so inherited vault debt does not block an operation; compare against the pre-edit scan and use `--strict` when a clean baseline is required. Treat source orphans as review candidates—not permission to edit them. It does not detect contradictions or determine whether a claim is stale; those require reading the relevant pages.
+It reports broken links, orphan pages, missing project-hub references, missing required frontmatter, and unsafe filenames (`#`/`|`/`[`/`]`). Default mode reports findings without failing, so inherited vault debt does not block an operation; compare against the pre-edit scan and use `--strict` when a clean baseline is required. Treat source orphans as review candidates—not permission to edit them. It does not detect contradictions or determine whether a claim is stale; those require reading the relevant pages.
 
 ## Handoff
 
