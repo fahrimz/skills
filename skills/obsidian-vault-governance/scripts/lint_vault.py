@@ -50,6 +50,10 @@ def main() -> int:
     by_path: dict[str, Path] = {}
     for path in all_files:
         by_name[path.stem].append(path)
+        if path.suffix:
+            # Bare embed links like ![[image.png]] include the extension, unlike page
+            # links like [[Page]]; index by full filename too so those resolve.
+            by_name[path.name].append(path)
         rel = path.relative_to(root).as_posix()
         by_path[rel] = path
         if path.suffix:
