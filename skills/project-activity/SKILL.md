@@ -1,6 +1,6 @@
 ---
 name: project-activity
-description: Report what changed across Fahri's active projects since a cutoff — pulling each remote, diffing commits, and flagging uncommitted work. Active projects are read from `status: active` on each Obsidian project hub, never inferred from git. Use when the user asks to summarize latest activities, catch up on projects, see what changed since yesterday/last week, or check for uncommitted work across projects.
+description: Report what changed across Fahri's active projects since a cutoff — pulling each remote, diffing commits, and flagging uncommitted work. The active set is read from the `status` frontmatter field (value `active`) on each Obsidian project hub, never inferred from git. Use when the user asks to summarize latest activities, catch up on projects, see what changed since yesterday or last week, or check for uncommitted work across projects.
 ---
 
 # Project Activity
