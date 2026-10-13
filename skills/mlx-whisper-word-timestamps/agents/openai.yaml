@@ -1,0 +1,4 @@
+interface:
+  display_name: "MLX Whisper Word Timestamps"
+  short_description: "Transcribe an MP3 into word-level timestamp JSON"
+  default_prompt: "Transcribe the MP3 at $ARGUMENTS with mlx-whisper and return only the required word-level timestamp JSON."
