@@ -23,6 +23,10 @@ npx skills add fahrimz/skills --skill obsidian-vault-governance
 npx skills add fahrimz/skills --skill no-comments
 ```
 
+```bash
+npx skills add fahrimz/skills --skill project-deliver
+```
+
 ## Skills
 
 | Skill | Description |
@@ -33,3 +37,4 @@ npx skills add fahrimz/skills --skill no-comments
 | [`obsidian-vault-governance`](skills/obsidian-vault-governance/SKILL.md) | Govern Obsidian vault edits: preserve sources, maintain links/hubs/index/log, lint, and safely commit/push |
 | [`dump-session`](skills/dump-session/SKILL.md) | Save a curated summary + cleaned conversation transcript as a new Obsidian vault note, for reuse as context in future sessions |
 | [`project-activity`](skills/project-activity/SKILL.md) | Read-only cross-project sweep: pull active projects (from vault `status:`), diff commits, flag uncommitted work |
+| [`project-deliver`](skills/project-deliver/SKILL.md) | Deliver a work item end to end across a project's surfaces (backend/backoffice/mobile): plan, delegate to cheap subagents, verify locally and prod-like, release, open a PR with evidence. Per-project facts live in `.claude/delivery.md` |
