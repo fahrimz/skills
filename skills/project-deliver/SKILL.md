@@ -1,6 +1,7 @@
 ---
 name: project-deliver
-description: Deliver a work item (GitHub issue/PRD, spec-system features) end to end across the project's surfaces (backend, backoffice, mobile, etc.): plan, delegate edits to cheap subagents, verify locally, verify against the production-like env, release, and open a PR with evidence. Use when the user says "deliver", "work on issue #N", or wants the full autonomous build-test-PR cycle.
+description: >-
+  Deliver a work item (GitHub issue/PRD, spec-system features) end to end across the project's surfaces (backend, backoffice, mobile, etc.): plan, delegate edits to cheap subagents, verify locally, verify against the production-like env, release, and open a PR with evidence. Use when the user says "deliver", "work on issue #N", or wants the full autonomous build-test-PR cycle.
 ---
 
 # project-deliver
