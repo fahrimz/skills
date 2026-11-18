@@ -11,8 +11,8 @@ sources:            # ordered, first wins on conflict
 
 delegate: { model: <model>, effort: <level> }
 
-commits: <rules, e.g. subject <=64 chars, conventional prefix, bullet body, no trailers>
-pr: <target branch, linking keyword, skill to use for format>
+commits: <project rules layered on commit-conventions, e.g. subject <=64 chars. Trailers are never allowed; the commit-conventions skill rules.>
+pr: <target branch, linking keyword. Format follows commit-conventions unless the project says otherwise.>
 
 envs:
   local: <how to start/seed; env file>

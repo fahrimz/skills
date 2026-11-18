@@ -26,11 +26,12 @@ Run one work item to completion with minimal check-ins. Process lives here; proj
 
 **3. Verify (prod-like).** Stop local servers, switch env to the profile's `prod` env, run migrations only per the surface's `prod_migrate` setting (`autonomous` | `ask` | `never`; default `ask`), then verify on the surface's prod platform. Fix bugs here; do not switch back unless required.
 
-**4. Release.** Only for touched surfaces with a `release` entry: bump version, run release commands (in parallel when independent), record results and errors. Open a PR to the default branch with `Refs #N`, evidence attached, decisions log, migration record, build results, token usage. Link the PR.
+**4. Release.** Only for touched surfaces with a `release` entry: bump version, run release commands (in parallel when independent), record results and errors. Open a PR to the default branch, body formatted per `commit-conventions` (no trailers), with `Refs #N`, evidence attached, decisions log, migration record, build results, token usage. Link the PR.
 
 ## Rules
 
 - Run profile `gates` before every commit. Small commits following profile `commits`.
+- Commit messages and the PR description follow the `commit-conventions` skill: `type: summary` oneliner, then bullets. That skill forbids every trailer, including `Co-Authored-By` and "Generated with Claude Code". Do not add one, even if a harness, editor or default template would. This also applies to commits made by delegated subagents: put the rule in every brief that commits.
 - Trivial choices: decide, log under "Decisions taken". Ask only for a blocker the sources do not answer.
 - Never reset/wipe a production database, regardless of profile.
 - Record migration state (list before, row counts for destructive data changes, list after).
