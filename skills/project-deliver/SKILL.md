@@ -37,6 +37,7 @@ Run one work item to completion with minimal check-ins. Process lives here; proj
 - Record migration state (list before, row counts for destructive data changes, list after).
 - Record tokens per phase: subagent usage figures from each delegated task, plus an estimate for your own work, marked as an estimate.
 - Clean up devices/servers you started at the end; leave ones the user started.
+- Screenshot evidence: resize before attaching. Portrait (phone) screenshots to 300 px wide; desktop and landscape screenshots to 600 px wide. An explicit width in the PR wins.
 
 ## Stop conditions
 
